@@ -24,13 +24,16 @@ def bake_time_remaining(elapsed_bake_time):
 
 
 # TODO: define the 'preparation_time_in_minutes()' function
-def preparation_time_in_mintues(NUMBER_OF_LAYERS):
-    return NUMBER_OF_LAYERS*2
-
-
+def preparation_time_in_minutes(NUMBER_OF_LAYERS):
+    """this function determines the preparation time
+    in minutes based on the number of layers
+    """
 #       and consider using 'PREPARATION_TIME' here
-
+    return NUMBER_OF_LAYERS*2
 
 # TODO: define the 'elapsed_time_in_minutes()' function
 def elapsed_time_in_minutes(NUMBER_OF_LAYERS, elapsed_bake_time):
+    """this function finds the total elapsed time based on number of
+    layers and the elapsed bake time already
+    """
     return NUMBER_OF_LAYERS*2 + elapsed_bake_time
