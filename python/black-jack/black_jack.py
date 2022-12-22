@@ -15,9 +15,14 @@ def value_of_card(card):
     2.  'A' (ace card) = 1
     3.  '2' - '10' = numerical value.
     """
-
-    pass
-
+    # if card == 'J' or 'Q' or 'K':
+    # if card == 'J' or is_even(x) or fridge != running()
+    if card == 'J' or card == 'Q' or card == 'K':  
+        return 10
+    elif card == 'A':
+        return 1
+    else:
+        return int(card)
 
 def higher_card(card_one, card_two):
     """Determine which card has a higher value in the hand.
@@ -29,8 +34,16 @@ def higher_card(card_one, card_two):
     2.  'A' (ace card) = 1
     3.  '2' - '10' = numerical value.
     """
-
-    pass
+    value_of_card_one = value_of_card(card_one)
+    value_of_card_two = value_of_card(card_two)
+    
+    if value_of_card_one == value_of_card_two:
+        return card_one, card_two
+    elif value_of_card_one > value_of_card_two:
+        return card_one
+    elif value_of_card_one < value_of_card_two:
+        return card_two
+    
 
 
 def value_of_ace(card_one, card_two):
@@ -43,8 +56,14 @@ def value_of_ace(card_one, card_two):
     2.  'A' (ace card) = 11 (if already in hand)
     3.  '2' - '10' = numerical value.
     """
+    
+    value_card_one = 11 if card_one == ('A') else value_of_card(card_one)
 
-    pass
+    value_card_two = 11 if card_two == ('A') else value_of_card(card_two)   
+
+    total_score = value_card_one + value_card_two + 11
+    return 1 if total_score > 21 else return 11
+
 
 
 def is_blackjack(card_one, card_two):
