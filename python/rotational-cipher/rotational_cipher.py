@@ -19,8 +19,34 @@ def rotate(text, key):
         new_str = new_str + " "
 
     return new_str
+
+k = 0
+string = ''
+def addAs(n):
+    global k
+    global string
+    string = string + 'a'
+    k = k + 1
+    if k < n:
+        return addAs(n)
+    else:
+        return string
+
+def MakeAs(n, astring):
+    if n == 0:
+        return astring
+    else:
+        return MakeAs(n - 1, astring = astring + "a")
+
+print(MakeAs(100, ""))
+        
+
     
-print(rotate(5,5))
+# print(addAs(5))
+# print(k)
+
+# print(addAs(5))
+# print(k)
 
 
     # ###### example scratch pad
