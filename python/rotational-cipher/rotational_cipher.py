@@ -2,44 +2,33 @@ def rotate(text, key):
     #abcdefghijklmnopqrstuvwxyz
 
     # make translate function much smarter OR have a lower character translate and an upper
-    sentence = 'The quick.'
-    words = sentence.split(" ")
-    key = 13
+    #sentence = 'The quick.'
+    #words = text.split(" ")
+    #key = 13
 
+
+    translate_upper_chars = lambda c : chr((((ord(c)) - 65 + key) % 26) + 65)
     translate_lower_chars = lambda c : chr((((ord(c)) - 97 + key) % 26) + 97)
 
     new_str = ""
 
-    for word in words:
+    # for word in words:
 
-        for character in word:
+    for character in text:
         
-            new_str = new_str + translate_f(character)
+        if (65 <= ord(character) <= 90):
+            new_str = new_str + translate_upper_chars(character)
+        elif (97 <= ord(character) <= 122):
+            new_str = new_str + translate_lower_chars(character)
+        else:
+            new_str = new_str + character
 
-        new_str = new_str + " "
+
+        #new_str = new_str
 
     return new_str
 
-k = 0
-string = ''
-def addAs(n):
-    global k
-    global string
-    string = string + 'a'
-    k = k + 1
-    if k < n:
-        return addAs(n)
-    else:
-        return string
-
-def MakeAs(n, astring):
-    if n == 0:
-        return astring
-    else:
-        return MakeAs(n - 1, astring = astring + "a")
-
-print(MakeAs(100, ""))
-        
+print(rotate("Test", 5))
 
     
 # print(addAs(5))
